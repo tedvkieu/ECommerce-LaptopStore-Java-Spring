@@ -9,10 +9,8 @@ public class LaptopshopApplication {
 
 	public static void main(String[] args) {
 		
-		ApplicationContext tedvkieu = SpringApplication.run(LaptopshopApplication.class, args);
-		for (String s : tedvkieu.getBeanDefinitionNames()) {
-			System.out.println(s);
-		}
+		 SpringApplication.run(LaptopshopApplication.class, args);
+		
 	}
 
 }
