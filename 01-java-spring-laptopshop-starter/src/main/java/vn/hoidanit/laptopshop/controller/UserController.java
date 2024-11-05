@@ -12,26 +12,33 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 
-// @Controller // day la annotation
-// public class UserController {
-
-//     @RequestMapping("/") // day la annotation de gui request (yeu cau)
-//     public String getHomePage() {
-//         return "Hello Kieu day ne";
-//     }
-// }
-@RestController // day la annotation
+@Controller // day la annotation
 public class UserController {
 
-    //DI: dependency Injection;
+        //DI: dependency Injection;
     private UserService userService;
     
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("") // day la annotation de gui request (yeu cau)
-    public String getHomePage() {
-        return this.userService.handleHello();
+    @RequestMapping("/") // day la annotation de gui request (yeu cau)
+    public String getHomePage() { // chỉ đưa tên của file, để nó hiểu. Nên định dạng nó là String
+        String test = this.userService.handleHello();
+        return "eric.html";
     }
 }
+// @RestController // day la annotation
+// public class UserController {
+//     //DI: dependency Injection;
+//     private UserService userService;
+    
+//     public UserController(UserService userService) {
+//         this.userService = userService;
+//     }
+
+//     @GetMapping("") // day la annotation de gui request (yeu cau)
+//     public String getHomePage() {
+//         return this.userService.handleHello();
+//     }
+// }
