@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%>
+uri="http://java.sun.com/jsp/jstl/core"%> <%@taglib
+uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <html lang="en">
     <head>
@@ -21,32 +22,50 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 <div class="col-md-6 col-12 mx-auto">
                     <h3>Create a user</h3>
                     <hr />
-                    <form>
+                    <form:form
+                        method="post"
+                        action="/admin/user/create1"
+                        modelAttribute="newUser">
                         <div class="mb-3">
                             <label class="form-label">Email: </label>
-                            <input type="email" class="form-control" />
+                            <form:input
+                                type="email"
+                                class="form-control"
+                                path="email" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password: </label>
-                            <input type="password" class="form-control" />
+                            <form:input
+                                path="password"
+                                type="password"
+                                class="form-control" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Phone number: </label>
-                            <input type="number" class="form-control" />
+                            <form:input
+                                path="phone"
+                                type="number"
+                                class="form-control" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Full name: </label>
-                            <input type="text" class="form-control" />
+                            <form:input
+                                path="fullName"
+                                type="text"
+                                class="form-control" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Address: </label>
-                            <input type="text" class="form-control" />
+                            <form:input
+                                path="address"
+                                type="text"
+                                class="form-control" />
                         </div>
 
                         <button type="submit" class="btn btn-primary">
                             Create
                         </button>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </div>
