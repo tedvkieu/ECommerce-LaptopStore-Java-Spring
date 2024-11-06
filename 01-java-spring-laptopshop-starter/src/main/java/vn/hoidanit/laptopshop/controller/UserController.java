@@ -24,6 +24,13 @@ public class UserController {
         return "index";
     }
 
+    @RequestMapping("/admin/user/create")
+    public String getUserPage(Model model) {
+        
+
+        return "/admin/user/create";
+    }
+
 }
 // @RestController // day la annotation
 // public class UserController {
