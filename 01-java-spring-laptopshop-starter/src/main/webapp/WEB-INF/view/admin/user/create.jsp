@@ -19,12 +19,17 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
     <body>
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-6 col-12 mx-auto">
-                    <h3>Create a user</h3>
+                <div class="col-12 mx-auto">
+                    <div class="d-flex justify-content-between">
+                        <h3>Table Users</h3>
+                        <a href="/admin/user/create" class="btn btn-primary"
+                            >Create a user</a
+                        >
+                    </div>
                     <hr />
                     <form:form
                         method="post"
-                        action="/admin/user/create1"
+                        action="/admin/user/create"
                         modelAttribute="newUser">
                         <div class="mb-3">
                             <label class="form-label">Email: </label>

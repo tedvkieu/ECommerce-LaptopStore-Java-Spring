@@ -33,11 +33,16 @@ public class UserController {
 
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
-        model.addAttribute("newUser", new vn.hoidanit.laptopshop.domain.User());
-        return "/admin/user/create";
+        return "admin/user/table-user";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    @RequestMapping("/admin/user/create") // get
+    public String getUserCreatePage(Model model) {
+        model.addAttribute("newUser", new User());
+        return "admin/user/create";
+    }
+
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String createUserPage(Model model, @ModelAttribute("newUser") User tedvkieu) {
 
         System.out.println("run here" + tedvkieu);
