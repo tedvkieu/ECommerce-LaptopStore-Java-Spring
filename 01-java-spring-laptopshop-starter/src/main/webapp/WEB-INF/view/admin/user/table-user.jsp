@@ -37,23 +37,25 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                            <c:forEach var="user" items="${users1}">
+                                <tr>
+                                    <th>${user.id}</th>
+                                    <td>${user.email}</td>
+                                    <td>${user.fullName}</td>
+                            
+                                    <td>
+                                        <button class="btn btn-success">
+                                            View
+                                        </button>
+                                        <button class="btn btn-warning mx-2">
+                                            Update
+                                        </button>
+                                        <button class="btn btn-danger">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
