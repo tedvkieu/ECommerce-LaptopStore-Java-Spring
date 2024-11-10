@@ -54,9 +54,11 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
                                             class="btn btn-warning mx-2">
                                             Update
                                         </a>
-                                        <button class="btn btn-danger">
+                                        <a
+                                            href="/admin/user/delete/${user.id}"
+                                            class="btn btn-danger">
                                             Delete
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                             </c:forEach>
