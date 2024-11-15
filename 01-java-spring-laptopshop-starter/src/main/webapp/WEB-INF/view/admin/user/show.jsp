@@ -26,17 +26,6 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
 
         <!-- Custom styles for this template-->
         <link href="/css/sb-admin-2.min.css" rel="stylesheet" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(() => {
-                const avatarFile = $('#avatarFile');
-                avatarFile.change(function (e) {
-                    const imgURL = URL.createObjectURL(e.target.files[0]);
-                    $('#avatarPreview').attr('src', imgURL);
-                    $('#avatarPreview').css({ display: 'block' });
-                });
-            });
-        </script>
     </head>
 
     <body id="page-top">
@@ -55,53 +44,78 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
                     <!-- End of Topbar -->
 
                     <!-- Begin Page Content -->
-                    <main>
-                        <div class="container-fluid px-4">
-                            <h1 class="mt-4">Manage Users</h1>
-                            <ol class="breadcrumb mb-4">
-                                <li class="breadcrumb-item">
-                                    <a href="/admin">Dashboard</a>
-                                </li>
-                                <li class="breadcrumb-item active">
-                                    Delete User
-                                </li>
-                            </ol>
-                            <div class="col-md-6 col-12 mx-auto">
-                                <div class="row">
-                                    <div class="col-12 mx-auto">
-                                        <div
-                                            class="d-flex justify-content-between">
-                                            <h3>Delete user with id = ${id}</h3>
-                                        </div>
-                                        <hr />
-                                        <div class="alert alert-danger">
-                                            Are you sure to delete this user ?
-                                        </div>
-                                        <form:form
-                                            method="post"
-                                            action="/admin/user/delete"
-                                            modelAttribute="newUser">
-                                            <div
-                                                class="mb-3"
-                                                style="display: none">
-                                                <label class="form-label"
-                                                    >ID:
-                                                </label>
-                                                <form:input
-                                                    type="text"
-                                                    value="${id}"
-                                                    class="form-control"
-                                                    path="id" />
-                                            </div>
-                                            <button class="btn btn-danger">
-                                                Confirm
-                                            </button>
-                                        </form:form>
+                    <div class="container-fluid">
+                        <!-- Page Heading -->
+                          <div class="container-fluid px-4"></div>
+                        <h1 class ="mt-4">Manage Users</h1>
+                        <ol class = "breadcrumb mb-4">
+                            <li class ="breadcrumb-item"><a href ="/admin">Dashboard</a></li>
+                             <li class ="breadcrumb-item active">Users</li>
+                        </ol>
+                    
+                         <div class="container mt-5">
+                            <div class="row">
+                                <div class="col-12 mx-auto">
+                                    <div class="d-flex justify-content-between">
+                                        <h3>Table Users</h3>
+                                        <a
+                                            href="/admin/user/create"
+                                            class="btn btn-primary"
+                                            >Create a user</a
+                                        >
                                     </div>
+                                    <hr />
+                                    <table
+                                        class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Full Name</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach
+                                                var="user"
+                                                items="${users1}">
+                                                <tr>
+                                                    <th>${user.id}</th>
+                                                    <td>${user.email}</td>
+                                                    <td>${user.fullName}</td>
+
+                                                    <td>
+                                                        <a
+                                                            href="/admin/user/${user.id}"
+                                                            class="btn btn-success">
+                                                            View
+                                                        </a>
+                                                        <a
+                                                            href="/admin/user/update/${user.id}"
+                                                            class="btn btn-warning mx-2">
+                                                            Update
+                                                        </a>
+                                                        <a
+                                                            href="/admin/user/delete/${user.id}"
+                                                            class="btn btn-danger">
+                                                            Delete
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </main>
+
+                        <!-- Content Row -->
+                    </div>
+
+                       
+
+                        <!-- Content Row -->
+                    </div>
                     <!-- /.container-fluid -->
                 </div>
                 <!-- End of Main Content -->
@@ -160,7 +174,6 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
 
         <!-- Bootstrap core JavaScript-->
         <script src="/vendor/jquery/jquery.min.js"></script>
-
         <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
