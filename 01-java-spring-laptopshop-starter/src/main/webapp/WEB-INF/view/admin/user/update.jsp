@@ -28,16 +28,15 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
         <link href="/css/sb-admin-2.min.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script>
-                $(document).ready(() => {
-                const avatarFile = $("#avatarFile");
-                    avatarFile.change(function (e) {
+            $(document).ready(() => {
+                const avatarFile = $('#avatarFile');
+                avatarFile.change(function (e) {
                     const imgURL = URL.createObjectURL(e.target.files[0]);
-                    $("#avatarPreview").attr("src", imgURL);
-                    $("#avatarPreview").css({ "display": "block" });
-                    });
+                    $('#avatarPreview').attr('src', imgURL);
+                    $('#avatarPreview').css({ display: 'block' });
                 });
+            });
         </script>
-
     </head>
 
     <body id="page-top">
@@ -57,67 +56,106 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
 
                     <!-- Begin Page Content -->
                     <main>
-                            <div class="container-fluid px-4">
-                                <h1 class="mt-4">Manage Users</h1>
-                                <ol class="breadcrumb mb-4">
-                                    <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Update User</li>
-                                </ol>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-12 mx-auto">
-                    <h3>Update a user</h3>
-                    <hr />
-                    <form:form
-                        method="post"
-                        action="/admin/user/update"
-                        modelAttribute="newUser">
-                        <div class="mb-3" style="display: none">
-                            <label class="form-label">ID: </label>
-                            <form:input
-                                type="text"
-                                class="form-control"
-                                path="id" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email: </label>
-                            <form:input
-                                type="email"
-                                class="form-control"
-                                path="email"
-                                disabled="true" />
-                        </div>
+                        <div class="container-fluid px-4">
+                            <h1 class="mt-4">Manage Users</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item">
+                                    <a href="/admin/user">Table User</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Update User
+                                </li>
+                            </ol>
+                            <div class="col-md-6 col-12 mx-auto">
+                                <div class="row">
+                                    <div class="container mt-5">
+                                        <div class="row">
+                                            <div class="col-12 mx-auto">
+                                                <h3>Update a user</h3>
+                                                <hr />
+                                                <form:form
+                                                    method="post"
+                                                    action="/admin/user/update"
+                                                    modelAttribute="newUser">
+                                                    <div
+                                                        class="mb-3"
+                                                        style="display: none">
+                                                        <label
+                                                            class="form-label"
+                                                            >ID:
+                                                        </label>
+                                                        <form:input
+                                                            type="text"
+                                                            class="form-control"
+                                                            path="id" />
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            class="form-label"
+                                                            >Email:
+                                                        </label>
+                                                        <form:input
+                                                            type="email"
+                                                            class="form-control"
+                                                            path="email"
+                                                            disabled="true" />
+                                                    </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Phone number: </label>
-                            <form:input
-                                path="phone"
-                                type="number"
-                                class="form-control" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Full name: </label>
-                            <form:input
-                                path="fullName"
-                                type="text"
-                                class="form-control" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Address: </label>
-                            <form:input
-                                path="address"
-                                type="text"
-                                class="form-control" />
-                        </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            class="form-label"
+                                                            >Phone number:
+                                                        </label>
+                                                        <form:input
+                                                            path="phone"
+                                                            type="number"
+                                                            class="form-control" />
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            class="form-label"
+                                                            >Full name:
+                                                        </label>
+                                                        <form:input
+                                                            path="fullName"
+                                                            type="text"
+                                                            class="form-control" />
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            class="form-label"
+                                                            >Address:
+                                                        </label>
+                                                        <form:input
+                                                            path="address"
+                                                            type="text"
+                                                            class="form-control" />
+                                                    </div>
 
-                        <button type="submit" class="btn btn-warning">
-                            Update
-                        </button>
-                    </form:form>
+                                                    <button
+                                                        type="submit"
+                                                        class="btn btn-warning">
+                                                        Update
+                                                    </button>
+                                                </form:form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    <!-- /.container-fluid -->
                 </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <jsp:include page="../layout/footer.jsp" />
+                <!-- End of Footer -->
             </div>
+            <!-- End of Content Wrapper -->
         </div>
-    <!-- End of Page Wrapper -->
+        <!-- End of Page Wrapper -->
 
         <!-- Scroll to Top Button-->
         <a class="scroll-to-top rounded" href="#page-top">
@@ -165,7 +203,7 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
 
         <!-- Bootstrap core JavaScript-->
         <script src="/vendor/jquery/jquery.min.js"></script>
-   
+
         <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
