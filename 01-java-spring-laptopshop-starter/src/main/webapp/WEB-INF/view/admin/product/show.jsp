@@ -88,44 +88,44 @@ uri="http://www.springframework.org/tags/form" prefix="form"%>
                                                             </th>
                                                         </tr>
                                                     </thead>
-                                                    <!-- <tbody>
+                                                    <tbody>
                                                         <c:forEach
-                                                            var="user"
-                                                            items="${users1}">
+                                                            var="product"
+                                                            items="${products}">
                                                             <tr>
                                                                 <th>
-                                                                    ${user.id}
+                                                                    ${product.id}
                                                                 </th>
                                                                 <td>
-                                                                    ${user.email}
+                                                                    ${product.name}
                                                                 </td>
                                                                 <td>
-                                                                    ${user.fullName}
+                                                                    ${product.price}
                                                                 </td>
                                                                 <td>
-                                                                    ${user.role.name}
+                                                                    ${product.factory}
                                                                 </td>
 
                                                                 <td>
                                                                     <a
-                                                                        href="/admin/user/${user.id}"
+                                                                        href="/admin/product/${product.id}"
                                                                         class="btn btn-success">
                                                                         View
                                                                     </a>
                                                                     <a
-                                                                        href="/admin/user/update/${user.id}"
+                                                                        href="/admin/product/update/${product.id}"
                                                                         class="btn btn-warning mx-2">
                                                                         Update
                                                                     </a>
                                                                     <a
-                                                                        href="/admin/user/delete/${user.id}"
+                                                                        href="/admin/product/delete/${product.id}"
                                                                         class="btn btn-danger">
                                                                         Delete
                                                                     </a>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>
-                                                    </tbody> -->
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
