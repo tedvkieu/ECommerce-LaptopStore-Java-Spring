@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt"
-uri="http://java.sun.com/jsp/jstl/fmt" %>
+uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="form"
+uri="http://www.springframework.org/tags/form" %>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -41,51 +41,60 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                                         Create an Account!
                                     </h1>
                                 </div>
-                                <form class="user">
+                                <form:form
+                                    method="post"
+                                    action="/register"
+                                    class="user"
+                                    modelAttribute="registerUser">
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input
+                                            <form:input
                                                 type="text"
                                                 class="form-control form-control-user"
+                                                path="firstName"
                                                 id="exampleFirstName"
                                                 placeholder="First Name" />
                                         </div>
                                         <div class="col-sm-6">
-                                            <input
+                                            <form:input
                                                 type="text"
                                                 class="form-control form-control-user"
+                                                path="lastName"
                                                 id="exampleLastName"
                                                 placeholder="Last Name" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input
+                                        <form:input
                                             type="email"
                                             class="form-control form-control-user"
+                                            path="email"
                                             id="exampleInputEmail"
                                             placeholder="Email Address" />
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0">
-                                            <input
+                                            <form:input
                                                 type="password"
                                                 class="form-control form-control-user"
+                                                path="password"
                                                 id="exampleInputPassword"
                                                 placeholder="Password" />
                                         </div>
                                         <div class="col-sm-6">
-                                            <input
+                                            <form:input
                                                 type="password"
                                                 class="form-control form-control-user"
+                                                path="confirmPassword"
                                                 id="exampleRepeatPassword"
                                                 placeholder="Repeat Password" />
                                         </div>
                                     </div>
-                                    <a
-                                        href="login.html"
+                                    <button
+                                        type="submit"
                                         class="btn btn-primary btn-user btn-block">
                                         Register Account
-                                    </a>
+                                    </button>
                                     <hr />
                                     <a
                                         href="index.html"
@@ -99,7 +108,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" %>
                                         <i class="fab fa-facebook-f fa-fw"></i>
                                         Register with Facebook
                                     </a>
-                                </form>
+                                </form:form>
                                 <hr />
                                 <div class="text-center">
                                     <a class="small" href="forgot-password.html"
