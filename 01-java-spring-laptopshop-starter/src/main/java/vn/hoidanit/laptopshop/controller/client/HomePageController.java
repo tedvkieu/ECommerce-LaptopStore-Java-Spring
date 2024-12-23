@@ -25,4 +25,10 @@ public class HomePageController {
         return "client/homepage/show";
     }
 
+    @GetMapping("/register")
+    public String getRegisterPage(Model model) {
+
+        return "client/auth/register";
+    }
+
 }
